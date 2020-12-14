@@ -6,7 +6,7 @@ import 'package:flutter_local_notifications_platform_interface/flutter_local_not
 import 'package:platform/platform.dart';
 import 'package:timezone/timezone.dart';
 
-import '../flutter_local_notifications.dart';
+import '../flutter_notifications.dart';
 import 'initialization_settings.dart';
 import 'notification_details.dart';
 import 'platform_flutter_local_notifications.dart';
@@ -43,13 +43,14 @@ class FlutterLocalNotificationsPlugin {
     if (platform.isAndroid) {
       FlutterLocalNotificationsPlatform.instance =
           AndroidFlutterLocalNotificationsPlugin();
-    } else if (platform.isIOS) {
-      FlutterLocalNotificationsPlatform.instance =
-          IOSFlutterLocalNotificationsPlugin();
-    } else if (platform.isMacOS) {
-      FlutterLocalNotificationsPlatform.instance =
-          MacOSFlutterLocalNotificationsPlugin();
     }
+    // else if (platform.isIOS) {
+    //   FlutterLocalNotificationsPlatform.instance =
+    //       IOSFlutterLocalNotificationsPlugin();
+    // } else if (platform.isMacOS) {
+    //   FlutterLocalNotificationsPlatform.instance =
+    //       MacOSFlutterLocalNotificationsPlugin();
+    // }
   }
 
   static final FlutterLocalNotificationsPlugin _instance =
@@ -77,17 +78,18 @@ class FlutterLocalNotificationsPlugin {
         FlutterLocalNotificationsPlatform.instance
             is AndroidFlutterLocalNotificationsPlugin) {
       return FlutterLocalNotificationsPlatform.instance;
-    } else if (_platform.isIOS &&
-        T == IOSFlutterLocalNotificationsPlugin &&
-        FlutterLocalNotificationsPlatform.instance
-            is IOSFlutterLocalNotificationsPlugin) {
-      return FlutterLocalNotificationsPlatform.instance;
-    } else if (_platform.isMacOS &&
-        T == MacOSFlutterLocalNotificationsPlugin &&
-        FlutterLocalNotificationsPlatform.instance
-            is MacOSFlutterLocalNotificationsPlugin) {
-      return FlutterLocalNotificationsPlatform.instance;
     }
+    // else if (_platform.isIOS &&
+    //     T == IOSFlutterLocalNotificationsPlugin &&
+    //     FlutterLocalNotificationsPlatform.instance
+    //         is IOSFlutterLocalNotificationsPlugin) {
+    //   return FlutterLocalNotificationsPlatform.instance;
+    // } else if (_platform.isMacOS &&
+    //     T == MacOSFlutterLocalNotificationsPlugin &&
+    //     FlutterLocalNotificationsPlatform.instance
+    //         is MacOSFlutterLocalNotificationsPlugin) {
+    //   return FlutterLocalNotificationsPlatform.instance;
+    // }
 
     return null;
   }
@@ -122,17 +124,18 @@ class FlutterLocalNotificationsPlugin {
               AndroidFlutterLocalNotificationsPlugin>()
           ?.initialize(initializationSettings?.android,
               onSelectNotification: onSelectNotification);
-    } else if (_platform.isIOS) {
-      return await resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin>()
-          ?.initialize(initializationSettings?.iOS,
-              onSelectNotification: onSelectNotification);
-    } else if (_platform.isMacOS) {
-      return await resolvePlatformSpecificImplementation<
-              MacOSFlutterLocalNotificationsPlugin>()
-          ?.initialize(initializationSettings?.macOS,
-              onSelectNotification: onSelectNotification);
     }
+    // else if (_platform.isIOS) {
+    //   return await resolvePlatformSpecificImplementation<
+    //           IOSFlutterLocalNotificationsPlugin>()
+    //       ?.initialize(initializationSettings?.iOS,
+    //           onSelectNotification: onSelectNotification);
+    // } else if (_platform.isMacOS) {
+    //   return await resolvePlatformSpecificImplementation<
+    //           MacOSFlutterLocalNotificationsPlugin>()
+    //       ?.initialize(initializationSettings?.macOS,
+    //           onSelectNotification: onSelectNotification);
+    // }
     return true;
   }
 
@@ -153,15 +156,17 @@ class FlutterLocalNotificationsPlugin {
       return await resolvePlatformSpecificImplementation<
               AndroidFlutterLocalNotificationsPlugin>()
           ?.getNotificationAppLaunchDetails();
-    } else if (_platform.isIOS) {
-      return await resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin>()
-          ?.getNotificationAppLaunchDetails();
-    } else if (_platform.isMacOS) {
-      return await resolvePlatformSpecificImplementation<
-              MacOSFlutterLocalNotificationsPlugin>()
-          ?.getNotificationAppLaunchDetails();
-    } else {
+    }
+    // else if (_platform.isIOS) {
+    //   return await resolvePlatformSpecificImplementation<
+    //           IOSFlutterLocalNotificationsPlugin>()
+    //       ?.getNotificationAppLaunchDetails();
+    // } else if (_platform.isMacOS) {
+    //   return await resolvePlatformSpecificImplementation<
+    //           MacOSFlutterLocalNotificationsPlugin>()
+    //       ?.getNotificationAppLaunchDetails();
+    // }
+    else {
       return await FlutterLocalNotificationsPlatform.instance
               ?.getNotificationAppLaunchDetails() ??
           const NotificationAppLaunchDetails(false, null);
@@ -183,18 +188,20 @@ class FlutterLocalNotificationsPlugin {
           ?.show(id, title, body,
               notificationDetails: notificationDetails?.android,
               payload: payload);
-    } else if (_platform.isIOS) {
-      await resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin>()
-          ?.show(id, title, body,
-              notificationDetails: notificationDetails?.iOS, payload: payload);
-    } else if (_platform.isMacOS) {
-      await resolvePlatformSpecificImplementation<
-              MacOSFlutterLocalNotificationsPlugin>()
-          ?.show(id, title, body,
-              notificationDetails: notificationDetails?.macOS,
-              payload: payload);
-    } else {
+    }
+    // else if (_platform.isIOS) {
+    //   await resolvePlatformSpecificImplementation<
+    //           IOSFlutterLocalNotificationsPlugin>()
+    //       ?.show(id, title, body,
+    //           notificationDetails: notificationDetails?.iOS, payload: payload);
+    // } else if (_platform.isMacOS) {
+    //   await resolvePlatformSpecificImplementation<
+    //           MacOSFlutterLocalNotificationsPlugin>()
+    //       ?.show(id, title, body,
+    //           notificationDetails: notificationDetails?.macOS,
+    //           payload: payload);
+    // }
+    else {
       await FlutterLocalNotificationsPlatform.instance?.show(id, title, body);
     }
   }
@@ -237,14 +244,15 @@ class FlutterLocalNotificationsPlugin {
           .schedule(
               id, title, body, scheduledDate, notificationDetails?.android,
               payload: payload, androidAllowWhileIdle: androidAllowWhileIdle);
-    } else if (_platform.isIOS) {
-      await resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin>()
-          ?.schedule(id, title, body, scheduledDate, notificationDetails?.iOS,
-              payload: payload);
-    } else if (_platform.isMacOS) {
-      throw UnimplementedError();
     }
+    // else if (_platform.isIOS) {
+    //   await resolvePlatformSpecificImplementation<
+    //           IOSFlutterLocalNotificationsPlugin>()
+    //       ?.schedule(id, title, body, scheduledDate, notificationDetails?.iOS,
+    //           payload: payload);
+    // } else if (_platform.isMacOS) {
+    //   throw UnimplementedError();
+    // }
   }
 
   /// Schedules a notification to be shown at the specified date and time
@@ -299,23 +307,24 @@ class FlutterLocalNotificationsPlugin {
               payload: payload,
               androidAllowWhileIdle: androidAllowWhileIdle,
               matchDateComponents: matchDateTimeComponents);
-    } else if (_platform.isIOS) {
-      await resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin>()
-          ?.zonedSchedule(
-              id, title, body, scheduledDate, notificationDetails?.iOS,
-              uiLocalNotificationDateInterpretation:
-                  uiLocalNotificationDateInterpretation,
-              payload: payload,
-              matchDateTimeComponents: matchDateTimeComponents);
-    } else if (_platform.isMacOS) {
-      await resolvePlatformSpecificImplementation<
-              MacOSFlutterLocalNotificationsPlugin>()
-          ?.zonedSchedule(
-              id, title, body, scheduledDate, notificationDetails?.macOS,
-              payload: payload,
-              matchDateTimeComponents: matchDateTimeComponents);
     }
+    // else if (_platform.isIOS) {
+    //   await resolvePlatformSpecificImplementation<
+    //           IOSFlutterLocalNotificationsPlugin>()
+    //       ?.zonedSchedule(
+    //           id, title, body, scheduledDate, notificationDetails?.iOS,
+    //           uiLocalNotificationDateInterpretation:
+    //               uiLocalNotificationDateInterpretation,
+    //           payload: payload,
+    //           matchDateTimeComponents: matchDateTimeComponents);
+    // } else if (_platform.isMacOS) {
+    //   await resolvePlatformSpecificImplementation<
+    //           MacOSFlutterLocalNotificationsPlugin>()
+    //       ?.zonedSchedule(
+    //           id, title, body, scheduledDate, notificationDetails?.macOS,
+    //           payload: payload,
+    //           matchDateTimeComponents: matchDateTimeComponents);
+    // }
   }
 
   /// Periodically show a notification using the specified interval.
@@ -348,18 +357,20 @@ class FlutterLocalNotificationsPlugin {
               notificationDetails: notificationDetails?.android,
               payload: payload,
               androidAllowWhileIdle: androidAllowWhileIdle);
-    } else if (_platform.isIOS) {
-      await resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin>()
-          ?.periodicallyShow(id, title, body, repeatInterval,
-              notificationDetails: notificationDetails?.iOS, payload: payload);
-    } else if (_platform.isMacOS) {
-      await resolvePlatformSpecificImplementation<
-              MacOSFlutterLocalNotificationsPlugin>()
-          ?.periodicallyShow(id, title, body, repeatInterval,
-              notificationDetails: notificationDetails?.macOS,
-              payload: payload);
-    } else {
+    }
+    // else if (_platform.isIOS) {
+    //   await resolvePlatformSpecificImplementation<
+    //           IOSFlutterLocalNotificationsPlugin>()
+    //       ?.periodicallyShow(id, title, body, repeatInterval,
+    //           notificationDetails: notificationDetails?.iOS, payload: payload);
+    // } else if (_platform.isMacOS) {
+    //   await resolvePlatformSpecificImplementation<
+    //           MacOSFlutterLocalNotificationsPlugin>()
+    //       ?.periodicallyShow(id, title, body, repeatInterval,
+    //           notificationDetails: notificationDetails?.macOS,
+    //           payload: payload);
+    // }
+    else {
       await FlutterLocalNotificationsPlatform.instance
           ?.periodicallyShow(id, title, body, repeatInterval);
     }
@@ -385,15 +396,16 @@ class FlutterLocalNotificationsPlugin {
           ?.showDailyAtTime(
               id, title, body, notificationTime, notificationDetails?.android,
               payload: payload);
-    } else if (_platform.isIOS) {
-      await resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin>()
-          ?.showDailyAtTime(
-              id, title, body, notificationTime, notificationDetails?.iOS,
-              payload: payload);
-    } else if (_platform.isMacOS) {
-      throw UnimplementedError();
     }
+    // else if (_platform.isIOS) {
+    //   await resolvePlatformSpecificImplementation<
+    //           IOSFlutterLocalNotificationsPlugin>()
+    //       ?.showDailyAtTime(
+    //           id, title, body, notificationTime, notificationDetails?.iOS,
+    //           payload: payload);
+    // } else if (_platform.isMacOS) {
+    //   throw UnimplementedError();
+    // }
   }
 
   /// Shows a notification on weekly interval at the specified day and time.
@@ -417,15 +429,16 @@ class FlutterLocalNotificationsPlugin {
           ?.showWeeklyAtDayAndTime(id, title, body, day, notificationTime,
               notificationDetails?.android,
               payload: payload);
-    } else if (_platform.isIOS) {
-      await resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin>()
-          ?.showWeeklyAtDayAndTime(
-              id, title, body, day, notificationTime, notificationDetails?.iOS,
-              payload: payload);
-    } else if (_platform.isMacOS) {
-      throw UnimplementedError();
     }
+    // else if (_platform.isIOS) {
+    //   await resolvePlatformSpecificImplementation<
+    //           IOSFlutterLocalNotificationsPlugin>()
+    //       ?.showWeeklyAtDayAndTime(
+    //           id, title, body, day, notificationTime, notificationDetails?.iOS,
+    //           payload: payload);
+    // } else if (_platform.isMacOS) {
+    //   throw UnimplementedError();
+    // }
   }
 
   /// Returns a list of notifications pending to be delivered/shown.

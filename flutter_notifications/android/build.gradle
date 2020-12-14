@@ -1,4 +1,4 @@
-group 'com.dexterous.flutterlocalnotifications'
+group 'com.addweb.flutterlocalnotifications'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -10,6 +10,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.3'
     }
+
 }
 
 rootProject.allprojects {

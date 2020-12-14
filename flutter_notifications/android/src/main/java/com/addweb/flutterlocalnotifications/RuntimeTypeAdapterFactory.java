@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dexterous.flutterlocalnotifications;
+package com.addweb.flutterlocalnotifications;
 
 /*
  * Copyright (C) 2011 Google Inc.

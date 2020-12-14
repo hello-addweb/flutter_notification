@@ -1,9 +1,9 @@
-package com.dexterous.flutterlocalnotifications.models.styles;
+package com.addweb.flutterlocalnotifications.models.styles;
 
 import androidx.annotation.Keep;
 
-import com.dexterous.flutterlocalnotifications.models.MessageDetails;
-import com.dexterous.flutterlocalnotifications.models.PersonDetails;
+import com.addweb.flutterlocalnotifications.models.MessageDetails;
+import com.addweb.flutterlocalnotifications.models.PersonDetails;
 
 import java.util.ArrayList;
 

@@ -1,9 +1,10 @@
 import 'dart:typed_data';
 import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_local_notifications/src/platform_specifics/android/enums.dart';
+import 'package:flutter_notifications/flutter_notifications.dart';
+import 'package:flutter_notifications/src/platform_specifics/android/enums.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:platform/platform.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -305,21 +306,19 @@ void main() {
           }));
     });
 
-    test(
-      'show with default Android-specific details with a chronometer',
-          () async {
+    test('show with default Android-specific details with a chronometer',
+        () async {
       const AndroidInitializationSettings androidInitializationSettings =
-      AndroidInitializationSettings('app_icon');
+          AndroidInitializationSettings('app_icon');
       const InitializationSettings initializationSettings =
-      InitializationSettings(android: androidInitializationSettings);
+          InitializationSettings(android: androidInitializationSettings);
       await flutterLocalNotificationsPlugin.initialize(initializationSettings);
       final int timestamp = DateTime.now().millisecondsSinceEpoch;
 
       final AndroidNotificationDetails androidNotificationDetails =
-      AndroidNotificationDetails(
-          'channelId', 'channelName', 'channelDescription',
-          when: timestamp,
-          usesChronometer: true);
+          AndroidNotificationDetails(
+              'channelId', 'channelName', 'channelDescription',
+              when: timestamp, usesChronometer: true);
       await flutterLocalNotificationsPlugin.show(
           1,
           'notification title',
@@ -339,7 +338,7 @@ void main() {
               'channelDescription': 'channelDescription',
               'channelShowBadge': true,
               'channelAction':
-              AndroidNotificationChannelAction.createIfNotExists.index,
+                  AndroidNotificationChannelAction.createIfNotExists.index,
               'importance': Importance.defaultImportance.value,
               'priority': Priority.defaultPriority.value,
               'playSound': true,
@@ -383,7 +382,7 @@ void main() {
               },
             },
           }));
-      });
+    });
 
     test(
         'show with default Android-specific details and custom sound from raw '

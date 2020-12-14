@@ -1,7 +1,7 @@
-name: flutter_local_notifications
+name: flutter_notifications
 description: A cross platform plugin for displaying and scheduling local notifications for Flutter applications with the ability to customise for each platform.
 version: 3.0.2
-homepage: https://github.com/MaikuB/flutter_local_notifications/tree/master/flutter_local_notifications
+homepage: https://github.com/hello-addweb/flutter_notification.git
 
 dependencies:
   flutter:
@@ -22,12 +22,12 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.dexterous.flutterlocalnotifications
+        package: com.addweb.flutterlocalnotifications
         pluginClass: FlutterLocalNotificationsPlugin
-      ios:
-        pluginClass: FlutterLocalNotificationsPlugin
-      macos:
-        pluginClass: FlutterLocalNotificationsPlugin
+#      ios:
+#        pluginClass: FlutterLocalNotificationsPlugin
+#      macos:
+#        pluginClass: FlutterLocalNotificationsPlugin
 
 
 environment:

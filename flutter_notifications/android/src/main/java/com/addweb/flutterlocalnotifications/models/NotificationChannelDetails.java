@@ -1,10 +1,10 @@
-package com.dexterous.flutterlocalnotifications.models;
+package com.addweb.flutterlocalnotifications.models;
 
 import android.graphics.Color;
 
 import androidx.annotation.Keep;
 
-import com.dexterous.flutterlocalnotifications.SoundSource;
+import com.addweb.flutterlocalnotifications.SoundSource;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package com.dexterous.flutterlocalnotifications.models;
+package com.addweb.flutterlocalnotifications.models;
 
 import androidx.annotation.Keep;
 

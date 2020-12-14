@@ -1,4 +1,4 @@
-package com.dexterous.flutterlocalnotifications.models;
+package com.addweb.flutterlocalnotifications.models;
 
 import android.graphics.Color;
 import android.os.Build.VERSION;
@@ -6,16 +6,16 @@ import android.os.Build.VERSION_CODES;
 
 import androidx.annotation.Keep;
 
-import com.dexterous.flutterlocalnotifications.BitmapSource;
-import com.dexterous.flutterlocalnotifications.NotificationStyle;
-import com.dexterous.flutterlocalnotifications.RepeatInterval;
-import com.dexterous.flutterlocalnotifications.SoundSource;
-import com.dexterous.flutterlocalnotifications.models.styles.BigPictureStyleInformation;
-import com.dexterous.flutterlocalnotifications.models.styles.BigTextStyleInformation;
-import com.dexterous.flutterlocalnotifications.models.styles.DefaultStyleInformation;
-import com.dexterous.flutterlocalnotifications.models.styles.InboxStyleInformation;
-import com.dexterous.flutterlocalnotifications.models.styles.MessagingStyleInformation;
-import com.dexterous.flutterlocalnotifications.models.styles.StyleInformation;
+import com.addweb.flutterlocalnotifications.BitmapSource;
+import com.addweb.flutterlocalnotifications.NotificationStyle;
+import com.addweb.flutterlocalnotifications.RepeatInterval;
+import com.addweb.flutterlocalnotifications.SoundSource;
+import com.addweb.flutterlocalnotifications.models.styles.BigPictureStyleInformation;
+import com.addweb.flutterlocalnotifications.models.styles.BigTextStyleInformation;
+import com.addweb.flutterlocalnotifications.models.styles.DefaultStyleInformation;
+import com.addweb.flutterlocalnotifications.models.styles.InboxStyleInformation;
+import com.addweb.flutterlocalnotifications.models.styles.MessagingStyleInformation;
+import com.addweb.flutterlocalnotifications.models.styles.StyleInformation;
 
 import java.util.ArrayList;
 import java.util.Map;

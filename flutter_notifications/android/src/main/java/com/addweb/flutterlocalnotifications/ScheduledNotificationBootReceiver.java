@@ -1,4 +1,4 @@
-package com.dexterous.flutterlocalnotifications;
+package com.addweb.flutterlocalnotifications;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

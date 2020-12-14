@@ -7,7 +7,7 @@ import 'package:device_info/device_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_notifications/flutter_notifications.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:rxdart/subjects.dart';
@@ -1288,7 +1288,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _showNotificationWithChronometer() async {
     final AndroidNotificationDetails androidPlatformChannelSpecifics =
-    AndroidNotificationDetails(
+        AndroidNotificationDetails(
       'your channel id',
       'your channel name',
       'your channel description',
@@ -1298,7 +1298,7 @@ class _HomePageState extends State<HomePage> {
       usesChronometer: true,
     );
     final NotificationDetails platformChannelSpecifics =
-    NotificationDetails(android: androidPlatformChannelSpecifics);
+        NotificationDetails(android: androidPlatformChannelSpecifics);
     await flutterLocalNotificationsPlugin.show(
         0, 'plain title', 'plain body', platformChannelSpecifics,
         payload: 'item x');
