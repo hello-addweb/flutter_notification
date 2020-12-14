@@ -1,5 +1,5 @@
-name: flutter_local_notifications_example
-description: Demonstrates how to use the flutter_local_notifications plugin.
+name: flutter_notifications_example
+description: Demonstrates how to use the flutter_notifications plugin.
 publish_to: none
 
 dependencies:

@@ -218,7 +218,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) => MaterialApp(
         home: Scaffold(
           appBar: AppBar(
-            title: const Text('Plugin example app'),
+            title: const Text('Addweb Plugin example app'),
           ),
           body: SingleChildScrollView(
             child: Padding(
@@ -228,44 +228,8 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     const Padding(
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
-                      child: Text(
-                          'Tap on a notification when it appears to trigger'
-                          ' navigation'),
+                      child: Text('Test the notification'),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                      child: Text.rich(
-                        TextSpan(
-                          children: <InlineSpan>[
-                            const TextSpan(
-                              text: 'Did notification launch app? ',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(
-                              text: '${widget.didNotificationLaunchApp}',
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    if (widget.didNotificationLaunchApp)
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                        child: Text.rich(
-                          TextSpan(
-                            children: <InlineSpan>[
-                              const TextSpan(
-                                text: 'Launch notification payload: ',
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              TextSpan(
-                                text:
-                                    widget.notificationAppLaunchDetails.payload,
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
                     PaddedRaisedButton(
                       buttonText: 'Show plain notification with payload',
                       onPressed: () async {
@@ -295,41 +259,9 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                     PaddedRaisedButton(
-                      buttonText:
-                          'Schedule notification to appear in 5 seconds based '
-                          'on local time zone',
-                      onPressed: () async {
-                        await _zonedScheduleNotification();
-                      },
-                    ),
-                    PaddedRaisedButton(
                       buttonText: 'Repeat notification every minute',
                       onPressed: () async {
                         await _repeatNotification();
-                      },
-                    ),
-                    PaddedRaisedButton(
-                      buttonText:
-                          'Schedule daily 10:00:00 am notification in your '
-                          'local time zone',
-                      onPressed: () async {
-                        await _scheduleDailyTenAMNotification();
-                      },
-                    ),
-                    PaddedRaisedButton(
-                      buttonText:
-                          'Schedule weekly 10:00:00 am notification in your '
-                          'local time zone',
-                      onPressed: () async {
-                        await _scheduleWeeklyTenAMNotification();
-                      },
-                    ),
-                    PaddedRaisedButton(
-                      buttonText:
-                          'Schedule weekly Monday 10:00:00 am notification in '
-                          'your local time zone',
-                      onPressed: () async {
-                        await _scheduleWeeklyMondayTenAMNotification();
                       },
                     ),
                     PaddedRaisedButton(
@@ -339,32 +271,16 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                     PaddedRaisedButton(
-                      buttonText: 'Check pending notifications',
-                      onPressed: () async {
-                        await _checkPendingNotificationRequests();
-                      },
-                    ),
-                    PaddedRaisedButton(
-                      buttonText: 'Cancel notification',
-                      onPressed: () async {
-                        await _cancelNotification();
-                      },
-                    ),
-                    PaddedRaisedButton(
                       buttonText: 'Cancel all notifications',
                       onPressed: () async {
                         await _cancelAllNotifications();
                       },
                     ),
                     if (Platform.isAndroid) ...<Widget>[
-                      const Text(
-                        'Android-specific examples',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
                       PaddedRaisedButton(
                         buttonText:
                             'Show plain notification with payload and update '
-                            'channel description',
+                            ' description',
                         onPressed: () async {
                           await _showNotificationUpdateChannelDescription();
                         },
@@ -372,7 +288,7 @@ class _HomePageState extends State<HomePage> {
                       PaddedRaisedButton(
                         buttonText:
                             'Show plain notification as public on every '
-                            'lockscreen',
+                            'lock screen',
                         onPressed: () async {
                           await _showPublicNotification();
                         },
@@ -380,28 +296,9 @@ class _HomePageState extends State<HomePage> {
                       PaddedRaisedButton(
                         buttonText:
                             'Show notification with custom vibration pattern, '
-                            'red LED and red icon',
+                            ' red icon',
                         onPressed: () async {
                           await _showNotificationCustomVibrationIconLed();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Show notification using Android Uri sound',
-                        onPressed: () async {
-                          await _showSoundUriNotification();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText:
-                            'Show notification that times out after 3 seconds',
-                        onPressed: () async {
-                          await _showTimeoutNotification();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Show insistent notification',
-                        onPressed: () async {
-                          await _showInsistentNotification();
                         },
                       ),
                       PaddedRaisedButton(
@@ -443,89 +340,15 @@ class _HomePageState extends State<HomePage> {
                         },
                       ),
                       PaddedRaisedButton(
-                        buttonText: 'Show grouped notifications',
-                        onPressed: () async {
-                          await _showGroupedNotifications();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Show ongoing notification',
-                        onPressed: () async {
-                          await _showOngoingNotification();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText:
-                            'Show notification with no badge, alert only once',
-                        onPressed: () async {
-                          await _showNotificationWithNoBadge();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText:
-                            'Show progress notification - updates every second',
+                        buttonText: 'Show progress notification',
                         onPressed: () async {
                           await _showProgressNotification();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Show indeterminate progress notification',
-                        onPressed: () async {
-                          await _showIndeterminateProgressNotification();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Show notification without timestamp',
-                        onPressed: () async {
-                          await _showNotificationWithoutTimestamp();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Show notification with custom timestamp',
-                        onPressed: () async {
-                          await _showNotificationWithCustomTimestamp();
                         },
                       ),
                       PaddedRaisedButton(
                         buttonText: 'Show notification with chronometer',
                         onPressed: () async {
                           await _showNotificationWithChronometer();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Show full-screen notification',
-                        onPressed: () async {
-                          await _showFullScreenNotification();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Create grouped notification channels',
-                        onPressed: () async {
-                          await _createNotificationChannelGroup();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Delete notification channel group',
-                        onPressed: () async {
-                          await _deleteNotificationChannelGroup();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Create notification channel',
-                        onPressed: () async {
-                          await _createNotificationChannel();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Delete notification channel',
-                        onPressed: () async {
-                          await _deleteNotificationChannel();
-                        },
-                      ),
-                      PaddedRaisedButton(
-                        buttonText: 'Get active notifications',
-                        onPressed: () async {
-                          await _getActiveNotifications();
                         },
                       ),
                     ],
