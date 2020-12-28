@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications_platform_interface/flutter_local_notifications_platform_interface.dart';
-import 'package:flutter_notifications/flutter_notifications.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
@@ -10,17 +9,6 @@ void main() {
   final MockFlutterLocalNotificationsPlugin mock =
       MockFlutterLocalNotificationsPlugin();
   FlutterLocalNotificationsPlatform.instance = mock;
-
-  test(
-      'Throws assertion error when creating an IOSNotificationAttachment with '
-      'no file path', () {
-    expect(() => IOSNotificationAttachment(null), throwsAssertionError);
-  });
-
-  test('Creates IOSNotificationAttachment when file path is specified', () {
-    expect(
-        const IOSNotificationAttachment(''), isA<IOSNotificationAttachment>());
-  });
 }
 
 class MockMethodChannel extends Mock implements MethodChannel {}
