@@ -3,11 +3,11 @@
 A cross platform plugin for displaying local notifications. 
 
 
-## 📱 Supported platforms
+## Supported platforms
 * **Android**
 
 
-## ⚙️ Android Setup
+## Android Setup
 
 ```xml
 <activity
