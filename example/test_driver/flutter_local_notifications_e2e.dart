@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:e2e/e2e.dart';
-import 'package:flutter_notifications/flutter_notifications.dart';
+import 'package:flutter_notification/flutter_notification.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

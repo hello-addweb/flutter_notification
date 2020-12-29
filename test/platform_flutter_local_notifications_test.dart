@@ -3,8 +3,8 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_notifications/flutter_notifications.dart';
-import 'package:flutter_notifications/src/platform_specifics/android/enums.dart';
+import 'package:flutter_notification/flutter_notification.dart';
+import 'package:flutter_notification/src/platform_specifics/android/enums.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:platform/platform.dart';
 import 'package:timezone/data/latest.dart' as tz;
