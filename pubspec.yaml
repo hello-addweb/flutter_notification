@@ -1,6 +1,6 @@
 name: flutter_notification
 description: A cross platform plugin for displaying and scheduling notifications for Flutter applications with the ability to customise for each platform.
-version: 1.0.6
+version: 1.0.7
 homepage: https://github.com/hello-addweb/flutter_notification.git
 
 dependencies:
